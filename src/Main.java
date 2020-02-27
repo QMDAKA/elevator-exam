@@ -4,27 +4,26 @@ import java.util.Set;
 
 public class Main {
     public static int solution(int[] A, int[] B, int N, int M, int X, int Y) {
-        Set<Integer> setOfFloor = new HashSet<Integer>();
+        Set<Integer> setOfSelectedFloor = new HashSet<Integer>();
         int result = 0;
-        int indexForTraversalArray = 0;
         int waitingGuest = N;
         int currentWeightInElevator = 0;
         int currentGuestInElevator = 0;
-        while (waitingGuest != 0) {
-            currentWeightInElevator += A[indexForTraversalArray];
+        for (int i = 0; i < N; i++) {
+            currentWeightInElevator += A[i];
             currentGuestInElevator++;
             if (currentGuestInElevator > X || currentWeightInElevator > Y) {
-                result += setOfFloor.size() + 1;
-                setOfFloor.clear();
+                result += setOfSelectedFloor.size() + 1;
+                setOfSelectedFloor.clear();
                 currentGuestInElevator = 0;
                 currentWeightInElevator = 0;
+                i--;
             } else {
                 waitingGuest--;
-                setOfFloor.add(B[indexForTraversalArray]);
-                indexForTraversalArray++;
+                setOfSelectedFloor.add(B[i]);
             }
             if (waitingGuest == 0) {
-                result += setOfFloor.size() + 1;
+                result += setOfSelectedFloor.size() + 1;
             }
         }
         return result;
