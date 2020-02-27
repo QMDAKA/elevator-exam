@@ -24,6 +24,7 @@ public class Main {
             }
             if (waitingGuest == 0) {
                 result += setOfSelectedFloor.size() + 1;
+                break;
             }
         }
         return result;
