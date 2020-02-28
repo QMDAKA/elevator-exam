@@ -36,8 +36,8 @@ public class Main {
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ScannerException {
         ResourcesScanner resourcesScanner = new ResourcesScanner("resources.txt");
-        System.out.println(solution(resourcesScanner.getA(), resourcesScanner.getB(), resourcesScanner.getN(), resourcesScanner.getM(), resourcesScanner.getX(), resourcesScanner.getY()));
+        System.out.println("Total number of stops: " + solution(resourcesScanner.getA(), resourcesScanner.getB(), resourcesScanner.getN(), resourcesScanner.getM(), resourcesScanner.getX(), resourcesScanner.getY()));
     }
 }

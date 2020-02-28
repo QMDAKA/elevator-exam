@@ -2,9 +2,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
-
+class ScannerException extends Exception {
+    String errMsg;
+    ScannerException(String errMsg) {
+        this.errMsg = errMsg;
+    }
+    public String toString() {
+        return ("ScannerException occured: " + errMsg);
+    }
+}
 public class ResourcesScanner {
     private int[] A;
     private int[] B;
@@ -60,16 +67,22 @@ public class ResourcesScanner {
     public void setY(int y) {
         Y = y;
     }
-    public int[] initializeArrayByString (String arrayByString, int arrayLength) {
+    public int[] initializeArrayByString (String arrayByString, int arrayLength, int maxValue) throws ScannerException {
+        if(arrayByString.split(",").length != arrayLength) {
+            throw new ScannerException("Array length and N argument is not same");
+        }
         int[] tmpArr = new int[arrayLength];
         int index = 0;
         for (String s : arrayByString.split(",")) {
             tmpArr[index] = Integer.parseInt(s);
+            if(tmpArr[index] > maxValue) {
+                throw new ScannerException("Input value greater than max value");
+            }
             index++;
         }
         return tmpArr;
     }
-    public ResourcesScanner(String pathFile) {
+    public ResourcesScanner(String pathFile) throws ScannerException{
         File myObj = new File(pathFile);
         try {
             Scanner myReader = new Scanner(myObj);
@@ -89,10 +102,10 @@ public class ResourcesScanner {
                         this.setY(parseInt(data.substring(2)));
                         break;
                     case 'A':
-                        this.setA(initializeArrayByString(data.substring(2), this.getN()));
+                        this.setA(initializeArrayByString(data.substring(2), this.getN(), this.getY()));
                         break;
                     case 'B':
-                        this.setB(initializeArrayByString(data.substring(2), this.getN()));
+                        this.setB(initializeArrayByString(data.substring(2), this.getN(), this.getM()));
                         break;
                 }
             }
