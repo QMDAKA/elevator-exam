@@ -1,4 +1,5 @@
 #Count total stop taken by elevator
+
 ## Function Description
 Complete the function **solution**. This function returns the total stops taken by elevator to serve all the people
 
