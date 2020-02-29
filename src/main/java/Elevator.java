@@ -1,9 +1,7 @@
-import java.io.InputStream;
-import java.util.HashSet;
-import java.util.Set;
-
-public class Main {
-    public static int solution(int[] A, int[] B, int N, int M, int X, int Y) {
+public class Elevator {
+    public Elevator() {
+    }
+    public int solution(int[] A, int[] B, int N, int M, int X, int Y) {
         int[] setOfSelectedFloor = new int[M + 1];
         int countUniqueSelectedFloor = 0;
         int result = 0;
@@ -35,8 +33,4 @@ public class Main {
         return result;
     }
 
-    public static void main(String[] args) throws ScannerException {
-        ResourcesScanner resourcesScanner = new ResourcesScanner("resources.txt");
-        System.out.println("Total number of stops: " + solution(resourcesScanner.getA(), resourcesScanner.getB(), resourcesScanner.getN(), resourcesScanner.getM(), resourcesScanner.getX(), resourcesScanner.getY()));
-    }
 }
