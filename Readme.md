@@ -1,4 +1,4 @@
-#Count total stop taken by elevator
+# Count total stops taken by elevator
 
 ## Function Description
 Complete the function **solution**. This function returns the total stops taken by elevator to serve all the people
@@ -15,7 +15,9 @@ Complete the function **solution**. This function returns the total stops taken 
 * Solution function
   1. Time Complexity: O(N)
   2. Memory: O(N+M) 
-```
+  
+
+``` java 
 public int solution(int[] A, int[] B, int N, int M, int X, int Y) {
         int[] setOfSelectedFloor = new int[M + 1];
         int countUniqueSelectedFloor = 0;
@@ -49,7 +51,7 @@ public int solution(int[] A, int[] B, int N, int M, int X, int Y) {
     }
 ```
 * Test by ElevatorTest
-```
+``` java
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -84,7 +86,7 @@ public class ElevatorTest {
 ## ResourcesScanner 
 
 * Support read resources file
-```
+``` java
 public ResourcesScanner(String pathFile) throws ScannerException {
         File myObj = new File(pathFile);
         try {
